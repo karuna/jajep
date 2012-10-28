@@ -1,0 +1,19 @@
+#myCanvas {
+  width: 99%;
+  margin: 0px auto;
+  border-width:1px;
+  border-color:#888888;
+  border-style:solid;
+}
+
+div#container {
+  width: 99%;
+  height: 99%;
+  margin: 0px auto;
+}
+
+button {
+  position: fixed;
+  bottom: 10px;
+  left: 40px;
+}
