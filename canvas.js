@@ -1,7 +1,5 @@
 var canvas = $("#myCanvas");
 var context = canvas.get(0).getContext("2d");
-var canvasWidth = canvas.width();
-var canvasHeight = canvas.height();
 
 var playAnimation = true;
 var startButton = $("#startAnimation");
@@ -11,6 +9,7 @@ var canvasWidth = canvas.width();
 var canvasHeight = canvas.height();
 $(window).resize(resizeCanvas);
 
+// if we resize browser window
 function resizeCanvas() {
   console.log("canvas resized");
   canvas.attr("width", ~~($(window).get(0).innerWidth * 90 / 100));
@@ -20,6 +19,7 @@ function resizeCanvas() {
 };
 
 stopButton.hide();
+//stop animation
 startButton.click(function() {
     $(this).hide();
     stopButton.show();
@@ -28,6 +28,7 @@ startButton.click(function() {
   }
 );
 
+//start animation
 stopButton.click(function() {
     $(this).hide();
     startButton.show();
@@ -35,6 +36,7 @@ stopButton.click(function() {
   }
 );
 
+//we don't use setTimeout anymore, but use better function
 $(window).get(0).requestAnimFrame = (function(){
   return  window.requestAnimationFrame || 
     window.webkitRequestAnimationFrame || 
@@ -46,6 +48,7 @@ $(window).get(0).requestAnimFrame = (function(){
   };
 })();
 
+//convert degrees to radian
 function degrees(deg) {
   var parsed_deg = parseFloat(deg);
   var pi = Math.PI;
@@ -53,6 +56,8 @@ function degrees(deg) {
   return rad;
 }
 
+//little known canvas function
+//resizing will reset canvas to default
 function resetCanvas() {
   canvas.attr("width", $(window).get(0).innerWidth);
   canvas.attr("height", $(window).get(0).innerHeight);
@@ -60,15 +65,19 @@ function resetCanvas() {
   canvasHeight = canvas.height();
 }
 
+//make canvas blank again
 function clearCanvas() {
   context.clearRect(0, 0, canvasWidth, canvasHeight);
 }
 
+//reset any transformation
 function resetTranformationMatrix() {
   context.setTransform(1, 0, 0, 1, 0, 0);
 }
 
 console.log("Canvas loaded");
+
+//main loop
 function animate() {
   if (playAnimation) {
     requestAnimFrame(animate);
