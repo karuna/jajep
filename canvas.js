@@ -12,8 +12,8 @@ $(window).resize(resizeCanvas);
 // if we resize browser window
 function resizeCanvas() {
   console.log("canvas resized");
-  canvas.attr("width", ~~($(window).get(0).innerWidth * 90 / 100));
-  canvas.attr("height", ~~($(window).get(0).innerHeight * 90 / 100));
+  canvas.attr("width", ~~($(window).get(0).innerWidth * 99 / 100));
+  canvas.attr("height", ~~($(window).get(0).innerHeight * 99 / 100));
   canvasWidth = canvas.width();
   canvasHeight = canvas.height();
 };
