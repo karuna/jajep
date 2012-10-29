@@ -75,10 +75,18 @@ function resetTranformationMatrix() {
   context.setTransform(1, 0, 0, 1, 0, 0);
 }
 
-console.log("Canvas loaded");
+
+//TODO add keyboard event
+//TODO add mouse event
+
+//console.log("Canvas loaded");
 
 //main loop
 function animate() {
+  //clear
+  //update
+  //draw
+
   if (playAnimation) {
     requestAnimFrame(animate);
   }
